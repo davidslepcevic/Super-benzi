@@ -70,3 +70,30 @@ button {
 }
 button:active { transform: translateY(6px); box-shadow: 0 2px 0 #8a4f12; }
 .hint { margin-top: 20px; color: #333; font-size: 14px; }
+#mobileControls {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: space-between;
+  padding: 0 25px;
+  pointer-events: none;
+}
+
+#mobileControls button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #111;
+  background: #ffd34d;
+  font-size: 30px;
+  font-weight: bold;
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  #mobileControls {
+    display: flex;
+  }
+}
