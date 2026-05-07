@@ -295,26 +295,37 @@ const leftBtn = document.getElementById('leftBtn');
 const rightBtn = document.getElementById('rightBtn');
 const jumpBtn = document.getElementById('jumpBtn');
 
-function bindButton(btn, key) {
-  if (!btn) return;
-
-  btn.addEventListener('pointerdown', e => {
-    e.preventDefault();
-    keys[key] = true;
-  });
-
-  btn.addEventListener('pointerup', e => {
-    e.preventDefault();
-    keys[key] = false;
-  });
-
-  btn.addEventListener('pointerleave', () => {
-    keys[key] = false;
-  });
+function pressKey(key) {
+  keys[key] = true;
 }
 
-bindButton(leftBtn, 'a');
-bindButton(rightBtn, 'd');
-bindButton(jumpBtn, 'w');
+function releaseKey(key) {
+  keys[key] = false;
+}
+
+function setupBtn(id, key) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+
+  btn.ontouchstart = function(e) {
+    e.preventDefault();
+    pressKey(key);
+  };
+
+  btn.ontouchend = function(e) {
+    e.preventDefault();
+    releaseKey(key);
+  };
+
+  btn.onclick = function(e) {
+    e.preventDefault();
+    pressKey(key);
+    setTimeout(() => releaseKey(key), 150);
+  };
+}
+
+setupBtn('leftBtn', 'a');
+setupBtn('rightBtn', 'd');
+setupBtn('jumpBtn', 'w');
 
 loop();
