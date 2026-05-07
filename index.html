@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Benzi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="gameWrap">
+    <canvas id="game" width="960" height="540"></canvas>
+    <div id="menu" class="screen active">
+      <div class="menuCard">
+        <h1>Super Benzi</h1>
+        <p>Skupi limenke i preživi bleju.</p>
+        <button id="startBtn">START</button>
+        <div class="hint">Kontrole: A/D ili strelice, W/Space za skok</div>
+      </div>
+    </div>
+    <div id="gameOver" class="screen">
+      <div class="menuCard small">
+        <h2 id="gameOverTitle">GAME OVER</h2>
+        <p id="finalScore">Score: 0</p>
+        <button id="restartBtn">IGRAJ OPET</button>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
