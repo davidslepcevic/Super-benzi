@@ -291,4 +291,58 @@ function loop() {
   draw();
   requestAnimationFrame(loop);
 }
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+const jumpBtn = document.getElementById('jumpBtn');
+
+function bindButton(btn, key) {
+  if (!btn) return;
+
+  btn.addEventListener('touchstart', e => {
+    e.preventDefault();
+    keys[key] = true;
+  });
+
+  btn.addEventListener('touchend', e => {
+    e.preventDefault();
+    keys[key] = false;
+  });
+
+  btn.addEventListener('mousedown', e => {
+    keys[key] = true;
+  });
+
+  btn.addEventListener('mouseup', e => {
+    keys[key] = false;
+  });
+}
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+const jumpBtn = document.getElementById('jumpBtn');
+
+function bindButton(btn, key) {
+  if (!btn) return;
+
+  btn.addEventListener('touchstart', e => {
+    e.preventDefault();
+    keys[key] = true;
+  });
+
+  btn.addEventListener('touchend', e => {
+    e.preventDefault();
+    keys[key] = false;
+  });
+
+  btn.addEventListener('mousedown', e => {
+    keys[key] = true;
+  });
+
+  btn.addEventListener('mouseup', e => {
+    keys[key] = false;
+  });
+}
+
+bindButton(leftBtn, 'a');
+bindButton(rightBtn, 'd');
+bindButton(jumpBtn, 'w');
 loop();
